@@ -1,0 +1,13 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  labels:
+    ingestProm: kappa
+    release: prom
+  name: kafka-pod-monitor
+spec:
+  podMetricsEndpoints:
+    - port: prom
+  selector:
+    matchLabels:
+      app: kafka-app

@@ -1,0 +1,3 @@
+# Properties included by Makefile and then passed to Dockerfile.
+JAVA_VERSION=11
+IMAGE_NAME=hilmialf/reproduce-flink-kafkasink:1.0

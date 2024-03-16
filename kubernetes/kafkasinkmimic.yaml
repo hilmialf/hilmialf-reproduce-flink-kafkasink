@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kafkasink-mimic
+  labels:
+    app: kafkasink-mimic
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: kafkasink-mimic
+  template:
+    metadata:
+      labels:
+        app: kafkasink-mimic
+    spec:
+      containers:
+        - name: main
+          imagePullPolicy: Always
+          image: hilmialf/reproduce-flink-kafkasink:1.0
+          args: ["50", "1000", "kafka-svc:9092"]
